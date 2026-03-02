@@ -27,24 +27,6 @@ from langchain_community.document_loaders import DataFrameLoader
 # Import for filtering complex metadata
 from langchain_community.vectorstores.utils import filter_complex_metadata
 
-# Add this at the very beginning of your script, right after the imports
-import subprocess
-import sys
-
-def check_and_install_dependencies():
-    """Check if required packages are installed, install if missing"""
-    required_packages = ['openpyxl', 'xlrd']
-    for package in required_packages:
-        try:
-            __import__(package)
-            print(f"✓ {package} is already installed")
-        except ImportError:
-            print(f"✗ {package} not found. Installing...")
-            subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-            print(f"✓ {package} installed successfully")
-
-# Run the check
-check_and_install_dependencies()
 
 # ====================== HELPER FUNCTIONS ======================
 
